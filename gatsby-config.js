@@ -57,5 +57,20 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        mergeSecurityHeaders: false,
+        mergeLinkHeaders: false,
+        mergeCachingHeaders: false,
+        generateMatchPathRewrites: false, // отключаем автоматическую генерацию редиректов для динамических маршрутов
+        redirects: {
+          // Правило редиректа с урла со слешем на урл без слеша
+            from: "/*/",
+            to: "/:splat",
+            status: 301,
+        },
+      }
+    }
   ],
 }
