@@ -1,3 +1,4 @@
+
 import { Context } from 'https://edge.netlify.com'
 
 export default async function handler(request: Request, context: Context) {
@@ -21,6 +22,7 @@ export default async function handler(request: Request, context: Context) {
   if (response.status === 301) {
     const location = response.headers.get('Location')
     // Avoid infinite loops
+    console.log('Redirecting:', request.url, 'to', location)
     request.headers.set('x-nf-subrequest', '1')
     return context.rewrite(new URL(location || '', request.url).toString())
   }

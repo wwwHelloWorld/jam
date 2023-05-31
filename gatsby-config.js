@@ -61,4 +61,5 @@ module.exports = {
       resolve: "gatsby-plugin-netlify",
     }
   ],
+  trailingSlash: "never",
 }

@@ -1,3 +1,6 @@
 [[edge_functions]]
 function = "strip-slash"
 path = "/*"
+
+[dev]
+  targetPort = 8000
